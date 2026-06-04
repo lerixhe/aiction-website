@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getLocalePath } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -9,7 +9,7 @@ const t = useTranslations(lang);
   <div class="container">
     <div class="footer-content">
       <div class="footer-brand">
-        <a href={`/${lang}/`} class="footer-logo">
+        <a href={getLocalePath(lang)} class="footer-logo">
           <img src="/favicon.svg" alt="AIction" width="20" height="20" />
           <span>AIction</span>
         </a>
@@ -20,9 +20,9 @@ const t = useTranslations(lang);
         <div class="footer-section">
           <h4 class="footer-heading">Product</h4>
           <ul>
-            <li><a href={`/${lang}/`}>{t('nav.home')}</a></li>
-            <li><a href={`/${lang}/docs/`}>{t('nav.docs')}</a></li>
-            <li><a href={`/${lang}/changelog/`}>{t('nav.changelog')}</a></li>
+            <li><a href={getLocalePath(lang)}>{t('nav.home')}</a></li>
+            <li><a href={getLocalePath(lang, 'docs')}>{t('nav.docs')}</a></li>
+            <li><a href={getLocalePath(lang, 'changelog')}>{t('nav.changelog')}</a></li>
           </ul>
         </div>
 
@@ -40,7 +40,7 @@ const t = useTranslations(lang);
               </a>
             </li>
             <li>
-              <a href={`/${lang}/privacy/`}>
+              <a href={getLocalePath(lang, 'privacy')}>
                 {t('privacy.heading')}
               </a>
             </li>

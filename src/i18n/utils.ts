@@ -2,7 +2,7 @@ import { ui, defaultLang, type Lang, type UiKey } from './ui';
 
 export function getLangFromUrl(url: URL): Lang {
   const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as Lang;
+  if (lang in ui && lang !== defaultLang) return lang as Lang;
   return defaultLang;
 }
 
@@ -13,6 +13,6 @@ export function useTranslations(lang: Lang) {
 }
 
 export function getLocalePath(lang: Lang, path: string = ''): string {
-  const base = lang === defaultLang ? `/${lang}` : `/${lang}`;
-  return path ? `${base}/${path}` : base;
+  const prefix = lang === defaultLang ? '' : `/${lang}`;
+  return path ? `${prefix}/${path}` : prefix || '/';
 }

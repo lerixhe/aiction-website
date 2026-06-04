@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl } from '../i18n/utils';
+import { getLangFromUrl, getLocalePath } from '../i18n/utils';
 import { languages, type Lang } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
@@ -65,7 +65,7 @@ const basePath = getPathWithoutLocale(currentPath);
     {Object.entries(languages).map(([code, name]) => (
       <li role="none">
         <a
-          href={`/${code}${basePath}`}
+          href={getLocalePath(code as Lang, basePath.replace(/^\/|\/$/g, ''))}
           role="menuitem"
           class={`lang-item ${code === lang ? 'is-current' : ''}`}
           aria-current={code === lang ? 'page' : undefined}

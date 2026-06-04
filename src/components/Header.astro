@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getLocalePath } from '../i18n/utils';
 import { languages } from '../i18n/ui';
 import LanguagePicker from './LanguagePicker.astro';
 
@@ -7,15 +7,15 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navItems = [
-  { href: `/${lang}/`, label: t('nav.home') },
-  { href: `/${lang}/docs/`, label: t('nav.docs') },
-  { href: `/${lang}/changelog/`, label: t('nav.changelog') },
+  { href: getLocalePath(lang), label: t('nav.home') },
+  { href: getLocalePath(lang, 'docs'), label: t('nav.docs') },
+  { href: getLocalePath(lang, 'changelog'), label: t('nav.changelog') },
 ];
 ---
 
 <header class="header">
   <div class="header-inner container">
-    <a href={`/${lang}/`} class="logo">
+    <a href={getLocalePath(lang)} class="logo">
       <img src="/favicon.svg" alt="AIction" width="24" height="24" />
       <span>AIction</span>
     </a>

@@ -13,8 +13,8 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 // Generate alternate URLs for hreflang
 const alternateUrls = {
-  en: new URL('/en/', Astro.site).href,
-  zh: new URL('/zh/', Astro.site).href,
+  en: new URL('/', Astro.site).href,
+  zh: new URL('/zh', Astro.site).href,
 };
 ---
 
