@@ -1,55 +1,45 @@
-# AGENTS.md - AIction Website
+# AGENTS.md
 
-## Project Summary
-Official website for the AIction Chrome extension, built with Astro. Supports English and Chinese (i18n via subdirectory routing). Deployed to GitHub Pages at aiction.app.
-
-## Related Project
-- **Main project**: AIction Chrome extension
-- **Local path**: `../aiction/` (adjust to your local path)
-- **Repository**: github.com/lerixhe/aiction
-- **Shared resources**: `../aiction/docs/images/` (screenshots, demo GIF)
-- **Feature descriptions**: `../aiction/README.md` and `README.zh-CN.md`
-- **Architecture docs**: `../aiction/docs/WIKI.md`
-
-When updating website content, reference the main project's README for accurate feature descriptions and screenshots.
+## What This Is
+Static landing page for the AIction Chrome extension. Astro 6 + TypeScript strict. Bilingual (EN/ZH). Deployed to `aiction.app` via GitHub Pages.
 
 ## Commands
-- `npm run dev`: Start Astro dev server
-- `npm run build`: Build for production
-- `npm run preview`: Preview production build locally
+- `npm run dev` — dev server at localhost:4321
+- `npm run build` — static build to `dist/`
+- `npm run preview` — preview production build locally
+- No tests, no lint, no typecheck configured
 
-## Tech Stack
-- Astro 6.x (static site generator)
-- TypeScript (strict mode)
-- i18n: Subdirectory routing (`/en/`, `/zh/`)
-- Deployment: GitHub Pages + custom domain (aiction.app)
+## i18n — Read Before Editing Any Page or Component
+- Routes: `/en/` (default), `/zh/` (fallback rewrites to EN if missing)
+- `prefixDefaultLocale: true` — both locales have explicit prefix
+- `trailingSlash: 'always'` — all URLs end with `/`
+- Translation dictionary: `src/i18n/ui.ts` — every UI string lives here
+- Use `getLangFromUrl(Astro.url)` + `useTranslations(lang)` in components
+- Adding a new page: create both `src/pages/en/<path>.astro` and `src/pages/zh/<path>.astro`, add translation keys to `ui.ts`
+
+## Related Project (Chrome Extension)
+- Repo: `github.com/lerixhe/aiction`
+- Expected local path: `../aiction/`
+- Feature copy source: `../aiction/README.md`, `../aiction/README.zh-CN.md`
+- Screenshots: `../aiction/docs/images/` → copy to `public/images/` before use
+- When updating feature descriptions, always cross-reference the main project README
+
+## Deployment
+- GitHub Actions: `.github/workflows/deploy.yml`
+- Uses explicit Node 22 setup (not `withastro/action` — it failed on first deploy)
+- Custom domain via `public/CNAME` → `aiction.app`
+- Repo Settings > Pages > Source must be "GitHub Actions"
+- Push to `main` triggers deploy automatically
 
 ## Project Structure
 ```
-src/
-├── i18n/           # Translation dictionaries and utilities
-│   ├── ui.ts       # UI string translations (en + zh)
-│   └── utils.ts    # getLangFromUrl(), useTranslations()
-├── components/     # Reusable Astro components
-├── layouts/        # Base layout with meta tags
-└── pages/
-    ├── index.astro # Redirect to /en/
-    ├── en/         # English pages
-    └── zh/         # Chinese pages
+src/i18n/ui.ts          # Translation dictionary (en + zh)
+src/i18n/utils.ts       # getLangFromUrl(), useTranslations()
+src/layouts/Base.astro  # HTML shell, meta tags, fonts, global styles
+src/components/         # Header, Hero, Features, Demo, QuickStart, Footer, LanguagePicker
+src/pages/index.astro   # Redirect to /en/
+src/pages/en/           # English pages
+src/pages/zh/           # Chinese pages
+public/images/          # Screenshots from main project
+public/CNAME            # Custom domain
 ```
-
-## i18n Pattern
-- Translation dictionary in `src/i18n/ui.ts`
-- Use `useTranslations(lang)` hook in components
-- Use `getLangFromUrl(Astro.url)` to get current language
-- All UI strings should be added to both `en` and `zh` dictionaries
-
-## Deployment
-- GitHub Actions workflow: `.github/workflows/deploy.yml`
-- Custom domain: `public/CNAME` → aiction.app
-- Source: GitHub Actions (not branch-based)
-
-## Content Guidelines
-- Keep feature descriptions in sync with the main project
-- Use screenshots from `../aiction/docs/images/` when possible
-- Copy new screenshots to `public/images/` before referencing them
