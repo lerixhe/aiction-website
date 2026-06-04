@@ -1,0 +1,166 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href={`/${lang}/`} class="footer-logo">
+          <img src="/favicon.svg" alt="AIction" width="20" height="20" />
+          <span>AIction</span>
+        </a>
+        <p class="footer-desc">{t('hero.subtitle')}</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4 class="footer-heading">Product</h4>
+          <ul>
+            <li><a href={`/${lang}/`}>{t('nav.home')}</a></li>
+            <li><a href={`/${lang}/docs/`}>{t('nav.docs')}</a></li>
+            <li><a href={`/${lang}/changelog/`}>{t('nav.changelog')}</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-heading">Resources</h4>
+          <ul>
+            <li>
+              <a href="https://github.com/YOUR_USERNAME/aiction" target="_blank" rel="noopener noreferrer">
+                {t('footer.github')}
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/YOUR_USERNAME/aiction/issues" target="_blank" rel="noopener noreferrer">
+                Issues
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; {new Date().getFullYear()} AIction. {t('footer.license')}
+      </p>
+      <p class="footer-made">{t('footer.made')}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 4rem 0 2rem;
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    max-width: 300px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--color-text);
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-logo:hover {
+    color: var(--color-text);
+  }
+
+  .footer-logo img {
+    border-radius: 4px;
+  }
+
+  .footer-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-section a {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .footer-section a:hover {
+    color: var(--color-text);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-copyright,
+  .footer-made {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      max-width: 100%;
+    }
+
+    .footer-links {
+      gap: 2rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

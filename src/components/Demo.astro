@@ -1,0 +1,104 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="demo" id="demo">
+  <div class="container">
+    <h2 class="section-title">Demo</h2>
+    <div class="demo-grid">
+      <div class="demo-item">
+        <div class="demo-image">
+          <img src="/images/bar.png" alt="AIction Toolbar" loading="lazy" />
+        </div>
+        <h3 class="demo-label">{t('features.inline.title')}</h3>
+      </div>
+      <div class="demo-item">
+        <div class="demo-image">
+          <img src="/images/chat.png" alt="AIction Chat" loading="lazy" />
+        </div>
+        <h3 class="demo-label">{t('features.chat.title')}</h3>
+      </div>
+      <div class="demo-item">
+        <div class="demo-image">
+          <img src="/images/actions.jpg" alt="AIction Actions" loading="lazy" />
+        </div>
+        <h3 class="demo-label">{t('features.actions.title')}</h3>
+      </div>
+      <div class="demo-item">
+        <div class="demo-image">
+          <img src="/images/providers.jpg" alt="AIction Providers" loading="lazy" />
+        </div>
+        <h3 class="demo-label">{t('features.providers.title')}</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .demo {
+    padding: 5rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .demo-item {
+    text-align: center;
+  }
+
+  .demo-image {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .demo-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .demo-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .demo-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .demo {
+      padding: 3rem 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .demo-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
