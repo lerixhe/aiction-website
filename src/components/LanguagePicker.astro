@@ -5,11 +5,13 @@ import { languages, type Lang } from '../i18n/ui';
 const lang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 
-// Get the path without the locale prefix
+// Get the path without the locale prefix, preserving trailing slash
 function getPathWithoutLocale(path: string): string {
+  const hasTrailingSlash = path.endsWith('/') && path.length > 1;
   const parts = path.split('/').filter(Boolean);
   if (parts.length > 0 && parts[0] in languages) {
-    return '/' + parts.slice(1).join('/');
+    const base = '/' + parts.slice(1).join('/');
+    return hasTrailingSlash && !base.endsWith('/') ? base + '/' : base;
   }
   return path;
 }

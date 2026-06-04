@@ -60,6 +60,11 @@ export const ui = {
 
     // Common
     'common.learn_more': 'Learn more',
+
+    // Privacy
+    'privacy.title': 'Privacy Policy - AIction',
+    'privacy.description': 'Privacy Policy for the AIction Chrome extension',
+    'privacy.heading': 'Privacy Policy',
   },
   zh: {
     // Nav
@@ -113,6 +118,11 @@ export const ui = {
 
     // Common
     'common.learn_more': '了解更多',
+
+    // Privacy
+    'privacy.title': '隐私政策 - AIction',
+    'privacy.description': 'AIction Chrome 扩展的隐私政策',
+    'privacy.heading': '隐私政策',
   },
 } as const;
 
