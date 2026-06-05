@@ -14,6 +14,7 @@ export const ui = {
     'nav.docs': 'Docs',
     'nav.changelog': 'Changelog',
     'nav.download': 'Download',
+    'nav.skip': 'Skip to main content',
 
     // Hero
     'hero.title': 'Select text → Trigger AI → Continue in chat',
@@ -75,6 +76,7 @@ export const ui = {
     'nav.docs': '文档',
     'nav.changelog': '更新日志',
     'nav.download': '下载',
+    'nav.skip': '跳转到主要内容',
 
     // Hero
     'hero.title': '选中文本 → 触发 AI → 继续对话',
