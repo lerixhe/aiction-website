@@ -60,6 +60,9 @@ export const ui = {
 
     // Common
     'common.learn_more': 'Learn more',
+    'theme.light': 'Light',
+    'theme.dark': 'Dark',
+    'theme.system': 'System',
 
     // Privacy
     'privacy.title': 'Privacy Policy - AIction',
@@ -118,6 +121,9 @@ export const ui = {
 
     // Common
     'common.learn_more': '了解更多',
+    'theme.light': '浅色',
+    'theme.dark': '深色',
+    'theme.system': '跟随系统',
 
     // Privacy
     'privacy.title': '隐私政策 - AIction',

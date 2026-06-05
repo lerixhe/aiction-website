@@ -63,6 +63,21 @@ const alternateUrls = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
+    <!-- Theme initialization script to avoid FOUC -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'system';
+        const root = document.documentElement;
+        
+        if (theme === 'system') {
+          const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          root.setAttribute('data-theme', systemDark ? 'dark' : 'light');
+        } else {
+          root.setAttribute('data-theme', theme);
+        }
+      })();
+    </script>
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
@@ -88,17 +103,34 @@ const alternateUrls = {
 
 <style is:global>
   :root {
-    --color-bg: #0a0a0a;
-    --color-bg-secondary: #111111;
-    --color-text: #ededed;
-    --color-text-secondary: #a1a1a1;
-    --color-accent: #3b82f6;
-    --color-accent-hover: #2563eb;
-    --color-border: #262626;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --max-width: 1200px;
     --header-height: 64px;
+  }
+
+  [data-theme="light"] {
+    --color-bg: #ffffff;
+    --color-bg-rgb: 255, 255, 255;
+    --color-bg-secondary: #f5f5f5;
+    --color-text: #1a1a1a;
+    --color-text-rgb: 26, 26, 26;
+    --color-text-secondary: #666666;
+    --color-accent: #2563eb;
+    --color-accent-hover: #1d4ed8;
+    --color-border: #e5e5e5;
+  }
+
+  [data-theme="dark"] {
+    --color-bg: #0a0a0a;
+    --color-bg-rgb: 10, 10, 10;
+    --color-bg-secondary: #111111;
+    --color-text: #ededed;
+    --color-text-rgb: 237, 237, 237;
+    --color-text-secondary: #a1a1a1;
+    --color-accent: #3b82f6;
+    --color-accent-hover: #2563eb;
+    --color-border: #262626;
   }
 
   *,
