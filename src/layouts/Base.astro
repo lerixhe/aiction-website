@@ -11,10 +11,12 @@ const { title, description, lang: propLang } = Astro.props;
 const lang = propLang || getLangFromUrl(Astro.url);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
-// Generate alternate URLs for hreflang
+// Generate alternate URLs for hreflang — mirror current path in each locale
+const pathWithoutLang = Astro.url.pathname.replace(/^\/(en|zh)(\/|$)/, '/');
+const cleanPath = pathWithoutLang === '/' ? '/' : pathWithoutLang.replace(/\/$/, '');
 const alternateUrls = {
-  en: new URL('/', Astro.site).href,
-  zh: new URL('/zh', Astro.site).href,
+  en: new URL(cleanPath, Astro.site).href,
+  zh: new URL(`/zh${cleanPath}`, Astro.site).href,
 };
 ---
 

@@ -10,12 +10,12 @@ Static landing page for the AIction Chrome extension. Astro 6 + TypeScript stric
 - No tests, no lint, no typecheck configured
 
 ## i18n — Read Before Editing Any Page or Component
-- Routes: `/en/` (default), `/zh/` (fallback rewrites to EN if missing)
-- `prefixDefaultLocale: true` — both locales have explicit prefix
-- `trailingSlash: 'always'` — all URLs end with `/`
+- Routes: `/` (default), `/zh/` (fallback rewrites to EN if missing)
+- `prefixDefaultLocale: false` — only zh has prefix
+- `trailingSlash: 'never'` — no trailing slashes
 - Translation dictionary: `src/i18n/ui.ts` — every UI string lives here
 - Use `getLangFromUrl(Astro.url)` + `useTranslations(lang)` in components
-- Adding a new page: create both `src/pages/en/<path>.astro` and `src/pages/zh/<path>.astro`, add translation keys to `ui.ts`
+- Adding a new page: create `src/pages/<path>.astro` and `src/pages/zh/<path>.astro`, add translation keys to `ui.ts`
 
 ## Related Project (Chrome Extension)
 - Repo: `github.com/lerixhe/aiction`
@@ -37,8 +37,8 @@ src/i18n/ui.ts          # Translation dictionary (en + zh)
 src/i18n/utils.ts       # getLangFromUrl(), useTranslations()
 src/layouts/Base.astro  # HTML shell, meta tags, fonts, global styles
 src/components/         # Header, Hero, Features, Demo, QuickStart, Footer, LanguagePicker
-src/pages/index.astro   # Redirect to /en/
-src/pages/en/           # English pages
+src/pages/index.astro   # Homepage (English)
+src/pages/              # English pages (root level, no prefix)
 src/pages/zh/           # Chinese pages
 public/images/          # Screenshots from main project
 public/CNAME            # Custom domain
