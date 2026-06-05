@@ -5,11 +5,13 @@ interface Props {
   title: string;
   description: string;
   lang?: string;
+  schemaType?: 'WebApplication' | 'WebPage';
 }
 
-const { title, description, lang: propLang } = Astro.props;
+const { title, description, lang: propLang, schemaType = 'WebApplication' } = Astro.props;
 const lang = propLang || getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const schemaDescription = schemaType === 'WebPage' ? t('privacy.description') : t('hero.subtitle');
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 // Generate alternate URLs for hreflang — mirror current path in each locale
@@ -90,13 +92,13 @@ const alternateUrls = {
     </script>
 
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "AIction",
-        "description": "A lightweight Chrome extension for getting AI help on selected web content",
-        "url": "https://aiction.app",
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": schemaType,
+      "name": "AIction",
+      "description": schemaDescription,
+      "url": "https://aiction.app",
+      ...(schemaType === 'WebApplication' ? {
         "applicationCategory": "BrowserApplication",
         "operatingSystem": "Chrome, Firefox",
         "offers": {
@@ -104,8 +106,8 @@ const alternateUrls = {
           "price": "0",
           "priceCurrency": "USD"
         }
-      }
-    </script>
+      } : {})
+    })} />
   </head>
   <body>
     <a href="#main-content" class="skip-link">{t('nav.skip')}</a>
