@@ -64,6 +64,33 @@ export const ui = {
     'theme.light': 'Light',
     'theme.dark': 'Dark',
     'theme.system': 'System',
+    'theme.toggle': 'Toggle theme',
+    'nav.toggle_menu': 'Toggle menu',
+    'lang.change': 'Change language — current: ',
+
+    // Page
+    'page.title': 'AIction - Select text → Trigger AI → Continue in chat',
+
+    // Demo
+    'demo.title': 'Demo',
+    'demo.alt.toolbar': 'AIction Toolbar',
+    'demo.alt.chat': 'AIction Chat',
+    'demo.alt.actions': 'AIction Actions',
+    'demo.alt.providers': 'AIction Providers',
+
+    // Hero demo
+    'hero.chrome': 'Chrome Browser',
+    'hero.demo.p1': 'Artificial intelligence (AI) is the simulation of human intelligence processes by computer systems.',
+    'hero.demo.p2': 'These processes include learning, reasoning, and self-correction.',
+    'hero.demo.p3': 'AI has become an increasingly important topic in modern technology.',
+    'hero.demo.explain': 'Explain',
+    'hero.demo.translate': 'Translate',
+    'hero.demo.summarize': 'Summarize',
+
+    // Footer extra
+    'footer.product': 'Product',
+    'footer.resources': 'Resources',
+    'footer.issues': 'Issues',
 
     // Privacy
     'privacy.title': 'Privacy Policy - AIction',
@@ -126,6 +153,33 @@ export const ui = {
     'theme.light': '浅色',
     'theme.dark': '深色',
     'theme.system': '跟随系统',
+    'theme.toggle': '切换主题',
+    'nav.toggle_menu': '切换菜单',
+    'lang.change': '切换语言 — 当前：',
+
+    // Page
+    'page.title': 'AIction - 选中文本 → 触发 AI → 继续对话',
+
+    // Demo
+    'demo.title': '演示',
+    'demo.alt.toolbar': 'AIction 工具栏',
+    'demo.alt.chat': 'AIction 聊天',
+    'demo.alt.actions': 'AIction 动作',
+    'demo.alt.providers': 'AIction 模型',
+
+    // Hero demo
+    'hero.chrome': 'Chrome 浏览器',
+    'hero.demo.p1': '人工智能（AI）是计算机系统对人类智能过程的模拟。',
+    'hero.demo.p2': '这些过程包括学习、推理和自我纠正。',
+    'hero.demo.p3': '人工智能已成为现代科技中日益重要的话题。',
+    'hero.demo.explain': '解释',
+    'hero.demo.translate': '翻译',
+    'hero.demo.summarize': '总结',
+
+    // Footer extra
+    'footer.product': '产品',
+    'footer.resources': '资源',
+    'footer.issues': '问题反馈',
 
     // Privacy
     'privacy.title': '隐私政策 - AIction',

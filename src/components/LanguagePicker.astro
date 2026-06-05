@@ -1,8 +1,9 @@
 ---
-import { getLangFromUrl, getLocalePath } from '../i18n/utils';
+import { getLangFromUrl, getLocalePath, useTranslations } from '../i18n/utils';
 import { languages, type Lang } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const currentPath = Astro.url.pathname;
 
 // Get the path without the locale prefix, preserving trailing slash
@@ -25,7 +26,7 @@ const basePath = getPathWithoutLocale(currentPath);
     class="lang-trigger"
     aria-haspopup="menu"
     aria-expanded="false"
-    aria-label={`Change language — current: ${languages[lang]}`}
+    aria-label={`${t('lang.change')}${languages[lang]}`}
     data-lang-trigger
   >
     <svg

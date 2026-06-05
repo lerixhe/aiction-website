@@ -7,29 +7,29 @@ const t = useTranslations(lang);
 
 <section class="demo" id="demo">
   <div class="container">
-    <h2 class="section-title">Demo</h2>
+    <h2 class="section-title">{t('demo.title')}</h2>
     <div class="demo-grid">
       <div class="demo-item">
         <div class="demo-image">
-          <img src="/images/bar.png" alt="AIction Toolbar" loading="lazy" />
+          <img src="/images/bar.png" alt={t('demo.alt.toolbar')} loading="lazy" />
         </div>
         <h3 class="demo-label">{t('features.inline.title')}</h3>
       </div>
       <div class="demo-item">
         <div class="demo-image">
-          <img src="/images/chat.png" alt="AIction Chat" loading="lazy" />
+          <img src="/images/chat.png" alt={t('demo.alt.chat')} loading="lazy" />
         </div>
         <h3 class="demo-label">{t('features.chat.title')}</h3>
       </div>
       <div class="demo-item">
         <div class="demo-image">
-          <img src="/images/actions.jpg" alt="AIction Actions" loading="lazy" />
+          <img src="/images/actions.jpg" alt={t('demo.alt.actions')} loading="lazy" />
         </div>
         <h3 class="demo-label">{t('features.actions.title')}</h3>
       </div>
       <div class="demo-item">
         <div class="demo-image">
-          <img src="/images/providers.jpg" alt="AIction Providers" loading="lazy" />
+          <img src="/images/providers.jpg" alt={t('demo.alt.providers')} loading="lazy" />
         </div>
         <h3 class="demo-label">{t('features.providers.title')}</h3>
       </div>

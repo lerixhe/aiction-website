@@ -18,7 +18,7 @@ const t = useTranslations(lang);
 
       <div class="footer-links">
         <div class="footer-section">
-          <h4 class="footer-heading">Product</h4>
+          <h4 class="footer-heading">{t('footer.product')}</h4>
           <ul>
             <li><a href={getLocalePath(lang)}>{t('nav.home')}</a></li>
             <li><a href={getLocalePath(lang, 'docs')}>{t('nav.docs')}</a></li>
@@ -27,7 +27,7 @@ const t = useTranslations(lang);
         </div>
 
         <div class="footer-section">
-          <h4 class="footer-heading">Resources</h4>
+          <h4 class="footer-heading">{t('footer.resources')}</h4>
           <ul>
             <li>
               <a href="https://github.com/lerixhe/aiction" target="_blank" rel="noopener noreferrer">
@@ -36,7 +36,7 @@ const t = useTranslations(lang);
             </li>
             <li>
               <a href="https://github.com/lerixhe/aiction/issues" target="_blank" rel="noopener noreferrer">
-                Issues
+                {t('footer.issues')}
               </a>
             </li>
             <li>
