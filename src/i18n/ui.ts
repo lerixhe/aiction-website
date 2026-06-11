@@ -96,6 +96,13 @@ export const ui = {
     'privacy.title': 'Privacy Policy - AIction',
     'privacy.description': 'Privacy Policy for the AIction Chrome extension',
     'privacy.heading': 'Privacy Policy',
+
+    // Coming Soon
+    'comingsoon.title': 'Coming Soon - AIction',
+    'comingsoon.description': 'This page is under construction',
+    'comingsoon.heading': 'Coming Soon',
+    'comingsoon.message': 'This page is currently being built. Check back soon for updates!',
+    'comingsoon.back': 'Back to Home',
   },
   zh: {
     // Nav
@@ -185,6 +192,13 @@ export const ui = {
     'privacy.title': '隐私政策 - AIction',
     'privacy.description': 'AIction Chrome 扩展的隐私政策',
     'privacy.heading': '隐私政策',
+
+    // Coming Soon
+    'comingsoon.title': '即将推出 - AIction',
+    'comingsoon.description': '此页面正在建设中',
+    'comingsoon.heading': '即将推出',
+    'comingsoon.message': '此页面正在建设中，敬请期待！',
+    'comingsoon.back': '返回首页',
   },
 } as const;
 
